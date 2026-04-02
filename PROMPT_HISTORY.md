@@ -2,6 +2,10 @@
 
 ## 2 Apr 2026
 
+### 4. Address Pending Tasks
+
+Act as the Orchestrator, please inspect the "pending_tasks" in `manifest.json` and plan out a high level order of execution. Make to add additional tasks if necessary and ensure the sub-agents properly abides the Handoff Process if necessary to create follow-up tasks.
+
 ### 3. Proper Handoff
 
 Can you utilise scripts/handoff.py to create a task for the Artisan (for common components) and the Architect (for the overall web app) - the task needs to address the issues you highlighted and fix them

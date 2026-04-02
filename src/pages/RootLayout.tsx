@@ -38,7 +38,7 @@ const RootLayout = () => {
       footerNote={resumeContent.profile.contact}
       navItems={navItems}
     >
-        <Outlet />
+      <Outlet />
     </PortfolioLayout>
   )
 }

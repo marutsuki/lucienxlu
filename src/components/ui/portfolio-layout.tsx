@@ -60,7 +60,7 @@ export const PortfolioLayout = ({
               <p className="text-xs uppercase tracking-[0.3em] text-foreground/60">
                 Portfolio
               </p>
-              <h1 className="text-lg font-semibold">{brand}</h1>
+              <p className="text-lg font-semibold">{brand}</p>
             </div>
           </div>
 
@@ -114,7 +114,10 @@ export const PortfolioLayout = ({
           </div>
         </aside>
 
-        <main id="main-content" className="flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <main
+          id="main-content"
+          className="flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8"
+        >
           <div className="min-h-[calc(100vh-2rem)] rounded-3xl border border-foreground/10 bg-background/80 p-4 shadow-[0_24px_80px_-50px_rgba(0,0,0,0.35)] sm:p-6 lg:p-8">
             {children}
           </div>

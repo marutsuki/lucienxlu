@@ -1,3 +1,4 @@
+import { MetadataLine } from '../components/ui/metadata-line'
 import { resumeContent } from '../data/content'
 
 const HomePage = () => {
@@ -41,18 +42,20 @@ const HomePage = () => {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="text-xl font-medium">{entry.role}</h3>
-                  <p className="mt-1 text-sm text-foreground/60">
-                    {entry.company} · {entry.location}
-                  </p>
+                  <MetadataLine
+                    className="mt-1 text-sm text-foreground/60"
+                    items={[entry.company, entry.location]}
+                  />
                 </div>
                 <p className="text-sm text-foreground/60">
                   {entry.startDate} - {entry.endDate}
                 </p>
               </div>
 
-              <p className="mt-3 text-sm leading-6 text-foreground/70">
-                {entry.technologies.join(' · ')}
-              </p>
+              <MetadataLine
+                className="mt-3 text-sm leading-6 text-foreground/70"
+                items={entry.technologies}
+              />
 
               <ul className="mt-4 space-y-2 text-sm leading-6 text-foreground/75">
                 {entry.highlights.slice(0, 2).map((highlight) => (
@@ -99,9 +102,17 @@ const HomePage = () => {
           Contact
         </p>
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm leading-6 text-foreground/70">
-            {resumeContent.profile.contact}
-          </p>
+          <address className="not-italic text-sm leading-6 text-foreground/70">
+            <a className="block hover:underline" href="tel:+61468435818">
+              +61 468 435 818
+            </a>
+            <a
+              className="block hover:underline"
+              href="mailto:lucienlu2000@gmail.com"
+            >
+              lucienlu2000@gmail.com
+            </a>
+          </address>
           <div className="flex flex-wrap gap-3">
             {resumeContent.profile.links.map((link) => (
               <a
