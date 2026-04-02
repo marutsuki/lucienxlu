@@ -18,6 +18,10 @@ Objective: Design the $FEATURE_NAME
 
 Specs: Refer to $SPECS_FILE
 
+External Resources: Some media/content may need to be sourced externally. Please inspect `MEDIA.md` for any relevant resources that can be used for this feature.
+
+Environmental Issues: Refer to the "Catchas and Workarounds" section in `AGENTS.md` for possible workarounds to common environmental issues.
+
 Tasks:
     Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to \`CODING_GUIDELINES.md\`.
 
@@ -25,5 +29,9 @@ Tasks:
 
     Architect Handoff: Spawn the Architect to scaffold and add the new components created by the Artisan to the "$PAGE_PATH" page (create the page if necessary). Always refer to \`CODING_GUIDELINES.md\`.
 
-    Auditor Handoff: Spawn the Auditor and allow it to perform its assigned duties on the newly changed files.
+    Auditor Handoff: Spawn the Auditor and allow it to perform its assigned duties on the newly changed files and create handoff tasks if necessary.
+
+    Sanity Check (Recursive Step): Scan `manifest.json` for any pending tasks that are linked to this handoff and spawn the appropriate agents to address those tasks.
+
+    Product Owner Handoff: Spawn the Product Owner to review the implementation, UI styling/functionality and provide feedback (and create handoff tasks if necessary).
 EOF
