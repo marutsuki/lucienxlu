@@ -42,4 +42,15 @@ Every agent after a successful write must update an existing local store of thei
 
 ### Protocol
 Every agent must end their task by executing:
-`python scripts/handoff.py --agent [Name] --summary [Done] --files [Files] --next [Agent] --todo [Task]`
+`python scripts/handoff.py --agent [Name] --summary [Done] --files [Files] --next [Agent] --todo [Task] --link [Finished Task Ids]`
+
+**Note:** When an agent finishes a task that originated from a "pending_tasks" entry in `manifest.json`, the `task_id`(s) must be included in the `--link` argument for every task completed.
+
+Example:
+```
+[Agent] inspects `manifest.json` and starts work on a task with property `"task_id"="merry-go-round"` in the `pending_tasks` list.
+[Agent] finishes the task stated above.
+[Agent] inspects `manifest.json` and starts work on a task with property `"task_id"="hide-and-seek"` in the `pending_tasks` list.
+[Agent] finishes the task stated above.
+[Agent] must call the handoff script with all the arguments and the `--link` argument should look like `--link "merry-go-round" "hide-and-seek"`
+```

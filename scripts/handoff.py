@@ -1,5 +1,6 @@
 import argparse
 import json
+import uuid
 from datetime import datetime
 from pathlib import Path
 
@@ -32,7 +33,7 @@ def normalize_files(files_touched):
     return normalized
 
 
-def update_handoff(agent_name, task_summary, files_touched, next_agent=None, next_task=None):
+def update_handoff(agent_name, task_summary, files_touched, task_link_ids=None, next_agent=None, next_task=None):
     initialize_manifest()
     with MANIFEST_PATH.open("r", encoding="utf-8") as file_obj:
         data = json.load(file_obj)
@@ -56,9 +57,16 @@ def update_handoff(agent_name, task_summary, files_touched, next_agent=None, nex
             {
                 "target_agent": next_agent if next_agent else "Unassigned",
                 "task_description": next_task,
+                "task_id": str(uuid.uuid4())  # Generate a unique ID for the pending task
             }
         )
 
+    print(f"Task link IDs: {task_link_ids}")
+    if task_link_ids:
+        for pending in data["pending_tasks"][:]:
+            if pending.get("task_id") in task_link_ids:
+                data["pending_tasks"].remove(pending)
+                
     with MANIFEST_PATH.open("w", encoding="utf-8") as file_obj:
         json.dump(data, file_obj, indent=4)
 
@@ -88,6 +96,12 @@ def parse_args():
         nargs="+",
         help="Pending task for the next agent. Multi-word values are supported without quotes.",
     )
+    parser.add_argument(
+        "--link",
+        dest="task_link_ids",
+        nargs="+",
+        help="Optional task IDs to link this handoff to existing pending tasks.",
+    )
     args = parser.parse_args()
     args.summary = " ".join(args.summary)
     if args.next_task:
@@ -101,6 +115,7 @@ if __name__ == "__main__":
         agent_name=args.agent,
         task_summary=args.summary,
         files_touched=args.files,
+        task_link_ids=args.task_link_ids,
         next_agent=args.next_agent,
         next_task=args.next_task,
     )
