@@ -2,6 +2,10 @@
 
 ## 2 Apr 2026
 
+### 3. Proper Handoff
+
+Can you utilise scripts/handoff.py to create a task for the Artisan (for common components) and the Architect (for the overall web app) - the task needs to address the issues you highlighted and fix them
+
 ### 2. Initial Audit
 
 Act as The Auditor, audit the current scaffold base project for any traces of unoptimised SEO, technical debt, web vitals, or accessibility issues.
