@@ -8,7 +8,11 @@
 
 - No external .css files allowed
 - Use inline utility classes. For complex logic, use `clsx` or `tailwind-merge`
-- Rely on consistent styling by creating default styling in index.css for **only** HTML tags
+- Rely on consistent styling by creating default styling in index.css for **only** HTML tags, resort to inline styling whenever a HTML element cannot abide to the norm
+
+- Use @theme blocks in src/index.css for custom colors (e.g., a "Melbourne-Sky-Blue" or "Code-Terminal-Green")
+- Use Container Queries (@container) for complex components like the Project Cards, ensuring they look perfect regardless of the sidebar width
+- Dark Mode: Implement a system-level dark mode toggle using the dark: variant by default
 
 **Icons:** Use `lucide-react` only. Tree-shake imports; do not import entire libraries.
 
@@ -25,6 +29,11 @@
 **Date Formatting:** All dates must follow `dd MMM yyyy` format (e.g., `05 Jan 2026`). Use a utility function for consistency across agents.
 
 ## 🏗 3. Architectural Patterns
+
+**Routing:** Use react-router (v7+).
+
+- Use Data Routes (createBrowserRouter) to allow for future-proof loaders
+- Every route change must trigger a top-level <Suspense> boundary with a themed loading bar or spinner
 
 **State Management:** Keep state as local as possible. Do not introduce Redux/Zustand unless explicitly requested.
 

@@ -8,7 +8,22 @@ The initialisation prompt should only be used once upon instantiating your auton
 
 ### The Prompt
 
-Act as The Architect defined in AGENTS.md. Initialize a React + TypeScript project using Vite. Setup the folder structure: /src/components/ui, /src/data, and /src/pages. Create a basic layout wrapper that will house the navigation and footer.
+Role: Act as The Orchestrator.
+Objective: Initialize the React + TypeScript + Tailwind v4.0 project scaffold.
+
+Tasks:
+
+    Scaffold Folders: 
+
+    Type Definition: Read RULES.md. Create src/types/portfolio.ts and define type objects for Project, Experience, and Skill. Ensure all use strict unions and the dd MMM yyyy date format.
+
+    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts using the new types.
+
+    Artisan Handoff: Spawn the Artisan to create a basic Layout component using lucide-react for a navigation sidebar.
+
+    Architect Handoff: Spawn the Architect to create src/components/ui, src/data, src/types, src/pages and create the basic scaffolding and layout.
+
+Constraint: Do not proceed to UI placement until python scripts/handoff.py records that the Data and Types are synchronized.
 
 ## Feature Addition
 
