@@ -1,129 +1,127 @@
+import { ArrowUpRight, MapPin } from 'lucide-react'
+import { AboutCard } from '../components/ui/about-card'
 import { MetadataLine } from '../components/ui/metadata-line'
-import { resumeContent } from '../data/content'
+import { SplashLayout } from '../components/ui/splash-layout'
+import { landingContent, resumeContent } from '../data/content'
 
 const HomePage = () => {
-  const featuredExperience = resumeContent.experience.slice(0, 3)
-  const featuredSkills = resumeContent.coreSkills.slice(0, 3)
+  const { hero, about, navigationCues } = landingContent
+  const { profile } = resumeContent
 
   return (
-    <div className="flex flex-1 flex-col gap-8">
-      <section
-        className="rounded-3xl border border-foreground/10 bg-surface/70 p-6 sm:p-8"
-        id="overview"
-      >
-        <p className="text-sm uppercase tracking-[0.28em] text-foreground/60">
-          Portfolio scaffold
-        </p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
-          {resumeContent.profile.headline} building product-facing systems with
-          strong frontend foundations.
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-foreground/70 sm:text-lg">
-          {resumeContent.profile.summary}
-        </p>
-      </section>
-
-      <section className="space-y-4" id="experience">
-        <div className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.28em] text-foreground/60">
-            Experience
-          </p>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Recent roles and measurable delivery
-          </h2>
-        </div>
-
-        <div className="grid gap-4">
-          {featuredExperience.map((entry) => (
-            <article
-              className="rounded-3xl border border-foreground/10 bg-background p-5"
-              key={`${entry.company}-${entry.startDate}`}
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="text-xl font-medium">{entry.role}</h3>
-                  <MetadataLine
-                    className="mt-1 text-sm text-foreground/60"
-                    items={[entry.company, entry.location]}
-                  />
-                </div>
-                <p className="text-sm text-foreground/60">
-                  {entry.startDate} - {entry.endDate}
-                </p>
-              </div>
-
+    <div className="flex flex-col">
+      <div id="splash">
+        <SplashLayout
+          actions={[
+            {
+              label: navigationCues[0].label,
+              href: navigationCues[0].href,
+              variant: 'primary',
+            },
+            {
+              label: profile.links[0].label,
+              href: profile.links[0].href,
+              variant: 'secondary',
+            },
+          ]}
+          eyebrow={hero.eyebrow}
+          portraitAlt={hero.portraitAlt}
+          portraitSrc="/portrait-placeholder.svg"
+          scrollTargetId="about"
+          summary={
+            <div className="space-y-5">
+              <p className="max-w-2xl text-base leading-8 text-foreground/72 sm:text-lg">
+                {hero.summary}
+              </p>
               <MetadataLine
-                className="mt-3 text-sm leading-6 text-foreground/70"
-                items={entry.technologies}
+                className="text-sm text-foreground/60"
+                items={hero.specialties}
               />
-
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-foreground/75">
-                {entry.highlights.slice(0, 2).map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {navigationCues.map((cue) => (
+                  <a
+                    className="rounded-2xl border border-foreground/10 bg-background/70 p-4 text-sm leading-6 text-foreground/70 transition-colors hover:border-foreground/20 hover:bg-background"
+                    href={cue.href}
+                    key={cue.href}
+                  >
+                    <span className="block font-medium text-foreground">
+                      {cue.label}
+                    </span>
+                    <span className="mt-1 block">{cue.description}</span>
+                  </a>
                 ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-4" id="skills">
-        <div className="space-y-2">
-          <p className="text-sm uppercase tracking-[0.28em] text-foreground/60">
-            Skills
-          </p>
-          <h2 className="text-2xl font-semibold tracking-tight">
-            Typed content is ready for deeper section builds
-          </h2>
-        </div>
-
-        <div className="grid gap-4 lg:grid-cols-3">
-          {featuredSkills.map((group) => (
-            <article
-              className="rounded-3xl border border-foreground/10 bg-background p-5"
-              key={group.label}
-            >
-              <h3 className="text-lg font-medium">{group.label}</h3>
-              <ul className="mt-4 space-y-2 text-sm leading-6 text-foreground/70">
-                {group.items.slice(0, 4).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
+              </div>
+              <MetadataLine
+                className="text-sm text-foreground/60"
+                items={[
+                  <span className="inline-flex items-center gap-2" key="location">
+                    <MapPin aria-hidden="true" className="size-4" />
+                    {profile.location}
+                  </span>,
+                  profile.contact,
+                ]}
+              />
+            </div>
+          }
+          title={hero.title}
+        />
+      </div>
 
       <section
-        className="rounded-3xl border border-foreground/10 bg-surface/60 p-6"
-        id="contact"
+        aria-labelledby="about-title"
+        className="border-b border-foreground/10 bg-surface/55"
+        id="about"
       >
-        <p className="text-sm uppercase tracking-[0.28em] text-foreground/60">
-          Contact
-        </p>
-        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <address className="not-italic text-sm leading-6 text-foreground/70">
-            <a className="block hover:underline" href="tel:+61468435818">
-              +61 468 435 818
-            </a>
-            <a
-              className="block hover:underline"
-              href="mailto:lucienlu2000@gmail.com"
-            >
-              lucienlu2000@gmail.com
-            </a>
-          </address>
-          <div className="flex flex-wrap gap-3">
-            {resumeContent.profile.links.map((link) => (
-              <a
-                className="rounded-full border border-foreground/10 px-4 py-2 text-sm text-foreground transition-colors hover:bg-background"
-                href={link.href}
-                key={link.href}
-                rel="noreferrer"
-                target="_blank"
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm uppercase tracking-[0.28em] text-foreground/50">
+                {about.eyebrow}
+              </p>
+              <h2
+                className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl"
+                id="about-title"
               >
-                {link.label}
-              </a>
+                {about.title}
+              </h2>
+            </div>
+            <a
+              className="inline-flex items-center gap-2 text-sm font-medium text-foreground/65 transition-colors hover:text-foreground"
+              href="#splash"
+            >
+              Back to top
+              <ArrowUpRight aria-hidden="true" className="size-4" />
+            </a>
+          </div>
+
+          <p className="mt-5 max-w-3xl text-base leading-7 text-foreground/70 sm:text-lg">
+            {about.summary}
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {about.cards.map((card) => (
+              <AboutCard
+                accent={`${card.points.length}`.padStart(2, '0')}
+                badge={card.eyebrow}
+                description={
+                  <div className="space-y-4">
+                    <p>{card.summary}</p>
+                    <ul className="space-y-2">
+                      {card.points.map((point) => (
+                        <li className="flex gap-3" key={point}>
+                          <span
+                            aria-hidden="true"
+                            className="mt-2 size-1.5 shrink-0 rounded-full bg-accent"
+                          />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                }
+                key={card.title}
+                title={card.title}
+              />
             ))}
           </div>
         </div>

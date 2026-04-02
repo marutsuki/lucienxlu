@@ -1,0 +1,30 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized placeholder portrait">
+  <defs>
+    <linearGradient id="bg" x1="160" y1="80" x2="1040" y2="1520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset="0.5" stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#C7D2FE"/>
+    </linearGradient>
+    <linearGradient id="halo" x1="300" y1="220" x2="900" y2="1380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F766E" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#1D4ED8" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="350" y1="420" x2="850" y2="1220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2D6C8"/>
+      <stop offset="1" stop-color="#CDA38E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1600" rx="72" fill="url(#bg)"/>
+  <circle cx="600" cy="530" r="330" fill="url(#halo)"/>
+  <path d="M258 1216C316 1010 421 912 600 912C779 912 884 1010 942 1216V1330H258V1216Z" fill="#0F172A" fill-opacity="0.88"/>
+  <path d="M426 1010C426 848 505 724 600 724C695 724 774 848 774 1010V1110C774 1182 723 1240 660 1240H540C477 1240 426 1182 426 1110V1010Z" fill="url(#skin)"/>
+  <path d="M470 790C522 728 560 704 600 704C640 704 678 728 730 790C705 864 655 912 600 912C545 912 495 864 470 790Z" fill="#E5BFAF"/>
+  <path d="M486 810C510 744 554 710 600 710C646 710 690 744 714 810C694 844 652 872 600 872C548 872 506 844 486 810Z" fill="#F6D9CA"/>
+  <circle cx="520" cy="980" r="20" fill="#0F172A" fill-opacity="0.7"/>
+  <circle cx="680" cy="980" r="20" fill="#0F172A" fill-opacity="0.7"/>
+  <path d="M507 1066C537 1095 563 1108 600 1108C637 1108 663 1095 693 1066" stroke="#0F172A" stroke-opacity="0.55" stroke-width="16" stroke-linecap="round"/>
+  <path d="M392 414C454 304 525 252 600 252C675 252 746 304 808 414C768 478 721 520 600 520C479 520 432 478 392 414Z" fill="#0F172A" fill-opacity="0.95"/>
+  <path d="M430 424C480 346 537 306 600 306C663 306 720 346 770 424C738 451 699 468 600 468C501 468 462 451 430 424Z" fill="#111827"/>
+  <rect x="372" y="1370" width="456" height="84" rx="42" fill="#0F172A" fill-opacity="0.12"/>
+  <rect x="276" y="1480" width="648" height="44" rx="22" fill="#0F172A" fill-opacity="0.1"/>
+</svg>

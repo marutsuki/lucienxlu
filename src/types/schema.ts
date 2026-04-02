@@ -59,3 +59,38 @@ export type ResumeContent = {
   coreSkills: SkillGroup[]
   otherSkills: SkillGroup[]
 }
+
+export type LandingSectionId = 'splash' | 'about'
+
+export type LandingNavigationCue = {
+  label: string
+  description: string
+  href: `#${LandingSectionId}`
+}
+
+export type LandingAboutCard = {
+  eyebrow: string
+  title: string
+  summary: string
+  points: string[]
+}
+
+export type LandingHero = {
+  portraitSrc: string
+  portraitAlt: string
+  eyebrow: string
+  title: string
+  summary: string
+  specialties: string[]
+}
+
+export type LandingPageContent = {
+  hero: LandingHero
+  navigationCues: LandingNavigationCue[]
+  about: {
+    eyebrow: string
+    title: string
+    summary: string
+    cards: LandingAboutCard[]
+  }
+}

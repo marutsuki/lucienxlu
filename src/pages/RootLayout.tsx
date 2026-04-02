@@ -1,45 +1,19 @@
-import { Mail, NotebookText, Sparkles } from 'lucide-react'
 import { Outlet } from 'react-router'
-import { PortfolioLayout } from '../components/ui/portfolio-layout'
-import { resumeContent } from '../data/content'
 
 const RootLayout = () => {
-  const navItems = [
-    {
-      label: 'Overview',
-      href: '#overview',
-      description: 'Profile snapshot and current focus areas.',
-    },
-    {
-      label: 'Experience',
-      href: '#experience',
-      description: 'Recent engineering roles and impact.',
-      icon: <NotebookText aria-hidden="true" className="size-4 shrink-0" />,
-    },
-    {
-      label: 'Skills',
-      href: '#skills',
-      description: 'Technical strengths across frontend and backend.',
-      icon: <Sparkles aria-hidden="true" className="size-4 shrink-0" />,
-    },
-    {
-      label: 'Contact',
-      href: '#contact',
-      description: 'Direct links and ways to get in touch.',
-      icon: <Mail aria-hidden="true" className="size-4 shrink-0" />,
-    },
-  ]
-
   return (
-    <PortfolioLayout
-      brand={resumeContent.profile.name}
-      headline={resumeContent.profile.headline}
-      description={resumeContent.profile.summary}
-      footerNote={resumeContent.profile.contact}
-      navItems={navItems}
-    >
-      <Outlet />
-    </PortfolioLayout>
+    <div className="min-h-screen bg-background text-foreground">
+      <a
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:border focus:border-foreground/10 focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-foreground focus:outline-none"
+        href="#main-content"
+      >
+        Skip to content
+      </a>
+
+      <main id="main-content" className="min-h-screen">
+        <Outlet />
+      </main>
+    </div>
   )
 }
 

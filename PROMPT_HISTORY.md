@@ -2,6 +2,27 @@
 
 ## 2 Apr 2026
 
+### 5. Landing Page
+
+Role: Act as the Orchestrator
+Objective: Design the top section of the landing page
+
+Specs: 
+- The landing page (the root path `/`) should be a vertical scroll acting as a introduction to "Who I Am"
+- At the top of the landing page, the user should be greeted by a full screen width (on desktop/laptop) "splash art style" introduction with a portrait of "Me"
+- The portrait of myself is not accessible as of yet - please use a dummy image file
+- Right below the initial splash section - with assisted navigation, the user should be able to click or scroll down to the next "About Me" section, which will be a quick but memorable summary of what I do and what I specialise in
+- The About Me section content should be divided and grouped into "card-like" blocks
+
+Tasks:
+    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
+
+    Artisan Handoff: Spawn the Artisan to create a basic Layout component for the splash screen component and the cards in the About Me section. Always refer to `CODING_GUIDELINES.md`.
+
+    Architect Handoff: Spawn the Architect to scaffold and add the new components to the actual website. Always refer to `CODING_GUIDELINES.md`.
+
+    Auditor Handoff: Spawn the Auditor and allow it to perform its assigned duties on the newly changed files.
+
 ### 4. Address Pending Tasks
 
 Act as the Orchestrator, please inspect the "pending_tasks" in `manifest.json` and plan out a high level order of execution. Make to add additional tasks if necessary and ensure the sub-agents properly abides the Handoff Process if necessary to create follow-up tasks.

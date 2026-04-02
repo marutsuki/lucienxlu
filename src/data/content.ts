@@ -1,4 +1,5 @@
 import type {
+  LandingPageContent,
   ResumeContent,
 } from '../types/schema'
 
@@ -272,4 +273,73 @@ export const resumeContent: ResumeContent = {
       items: ['GreenID', 'Twilio', 'Boomi (iPaaS)'],
     },
   ],
+}
+
+export const landingContent: LandingPageContent = {
+  hero: {
+    portraitSrc: '/portrait-placeholder.png',
+    portraitAlt: 'Placeholder portrait of Lucien Lu for the landing page splash',
+    eyebrow: 'Who I Am',
+    title: 'Lucien Lu builds frontend-heavy systems that stay fast, legible, and reliable.',
+    summary:
+      'I work across React, Java, and cloud platforms, with a bias toward better developer experience, cleaner delivery pipelines, and product surfaces that feel calm under pressure.',
+    specialties: [
+      'Frontend-heavy full-stack engineering',
+      'Performance and observability improvements',
+      'Test automation and delivery tooling',
+    ],
+  },
+  navigationCues: [
+    {
+      label: 'Read the quick story',
+      description: 'Scroll to the About Me section for a compact summary of what I do.',
+      href: '#about',
+    },
+    {
+      label: 'Start at the top',
+      description: 'Jump back to the splash intro if you want the opening frame again.',
+      href: '#splash',
+    },
+  ],
+  about: {
+    eyebrow: 'About Me',
+    title: 'A concise view of the work, patterns, and outcomes I care about.',
+    summary:
+      'The cards below condense the strongest parts of the resume into a memorable first read: what I build, how I improve delivery, and where I invest my energy when teams need momentum.',
+    cards: [
+      {
+        eyebrow: 'What I build',
+        title: 'Product-facing systems with a strong frontend core.',
+        summary:
+          'My background centres on React, Java, and cloud-backed application surfaces that need to remain responsive, maintainable, and easy for teams to extend.',
+        points: [
+          'Frontend-heavy full-stack delivery across React, Angular, and Java.',
+          'Production reliability work that keeps user journeys stable under load.',
+          'Clear, typed implementations that make future changes safer.',
+        ],
+      },
+      {
+        eyebrow: 'How I move teams forward',
+        title: 'Performance, automation, and delivery improvements that remove friction.',
+        summary:
+          'The most satisfying wins in my resume are the ones that compound for the rest of the team: faster pipelines, better observability, and fewer manual steps.',
+        points: [
+          'Reduced a key portal load time from about 15s to about 8s.',
+          'Cut release overhead from over 2 hours to under 5 minutes.',
+          'Lifted frontend test coverage from 0% to 81%.',
+        ],
+      },
+      {
+        eyebrow: 'What I care about',
+        title: 'Practical engineering with enough structure to scale.',
+        summary:
+          'I value systems that are calm to operate, straightforward to change, and easy to explain to the next engineer who opens the file.',
+        points: [
+          'Developer experience that removes repeated manual effort.',
+          'Strong testing habits and low-noise quality gates.',
+          'Mentorship-minded communication, including tutoring experience.',
+        ],
+      },
+    ],
+  },
 }
