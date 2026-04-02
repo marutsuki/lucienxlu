@@ -25,10 +25,10 @@
 - **Rules:** No JSX/TSX. Only manages `src/data/content.ts`.
 - **Output:** Strongly typed JSON or TypeScript objects.
 
-### 5. The Auditor (SEO & Vitals)
-- **Scope:** Metadata, Head tags, and asset optimization.
-- **Rules:** Reviews `index.html` and page headers. Checks for alt text.
-- **Output:** SEO wrappers and performance reports.
+### 5. The Auditor (SEO, Tech Debt, Accessibility & Vitals)
+- **Scope:** Metadata and Head tags, HTML tags and attributes, and asset optimization.
+- **Rules:** Reviews `index.html` and page headers. Checks for alt text. Checks for deprecated HTML usage and semanticness of HTML structure.
+- **Output:** SEO wrappers, accessibility, technical debt and performance reports.
 
 ## Handover Process
 
