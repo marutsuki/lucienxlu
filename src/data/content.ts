@@ -293,7 +293,7 @@ export const landingContent: LandingPageContent = {
     {
       label: 'Read the quick story',
       description: 'Scroll to the About Me section for a compact summary of what I do.',
-      href: '#about',
+      href: '#about-me',
     },
     {
       label: 'Start at the top',
@@ -302,10 +302,60 @@ export const landingContent: LandingPageContent = {
     },
   ],
   about: {
+    id: 'about-me',
     eyebrow: 'About Me',
     title: 'A concise view of the work, patterns, and outcomes I care about.',
     summary:
-      'The cards below condense the strongest parts of the resume into a memorable first read: what I build, how I improve delivery, and where I invest my energy when teams need momentum.',
+      'The section below distills the strongest parts of the resume into a quick read: what I build, how I improve delivery, and where I invest my energy when teams need momentum.',
+    paragraphs: [
+      'I am a software engineer focused on frontend-heavy full-stack systems across React, Java, and cloud platforms. My work tends to sit close to the product surface, where clarity, responsiveness, and maintainability matter just as much as raw feature throughput.',
+      'Across recent roles, I have spent a lot of time improving the parts of delivery that compound for everyone else: faster pipelines, better observability, cleaner caching, and safer typed implementations. The common thread is removing friction without adding ceremony.',
+      'I also care about being useful to the next person who opens the file. That shows up in practical design choices, low-noise quality gates, and a mentoring mindset shaped by tutoring and collaborative engineering work.',
+    ],
+    skills: [
+      'React, Angular, and React Router',
+      'Java Spring, Quarkus, and cloud delivery',
+      'Performance tuning and observability',
+      'Playwright, Jest, JUnit, and test automation',
+      'Tailwind CSS and typed UI composition',
+      'Developer experience, CI/CD, and release tooling',
+    ],
+    quickLinks: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/marutsuki/',
+      },
+      {
+        label: 'Portfolio',
+        href: 'https://marutsuki.com/',
+      },
+      {
+        label: 'Email',
+        href: 'mailto:lucienlu2000@gmail.com',
+      },
+    ],
+    metrics: [
+      {
+        label: 'Portal load time',
+        value: '15s -> 8s',
+        detail: 'After login redirect improvements and infrastructure tuning.',
+      },
+      {
+        label: 'Release overhead',
+        value: '2+ hrs -> 5 mins',
+        detail: 'CI/CD setup with SonarQube support and automated deployment steps.',
+      },
+      {
+        label: 'Frontend coverage',
+        value: '0% -> 81%',
+        detail: 'Type-safe UI testing and coverage-focused delivery practices.',
+      },
+      {
+        label: 'Manual work saved',
+        value: '8 hrs / week',
+        detail: 'Through automation scripts and process streamlining.',
+      },
+    ],
     cards: [
       {
         eyebrow: 'What I build',

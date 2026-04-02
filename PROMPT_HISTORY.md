@@ -2,6 +2,10 @@
 
 ## 2 Apr 2026
 
+### 7. Product Owner Review
+
+Product Owner Handoff: Spawn the Product Owner to review the implementation, UI styling/functionality and provide feedback (and create handoff tasks if necessary).
+
 ### 6. About Me
 
 Role: Act as the Orchestrator

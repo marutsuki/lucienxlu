@@ -52,20 +52,31 @@ export type SkillGroup = {
   items: string[]
 }
 
+export type LandingSectionId = 'splash' | 'about' | 'about-me'
+
+export type LandingNavigationCue = {
+  label: string
+  description: string
+  href: `#${LandingSectionId}`
+}
+
+export type LandingQuickLink = {
+  label: string
+  href: string
+}
+
+export type LandingMetric = {
+  label: string
+  value: string
+  detail?: string
+}
+
 export type ResumeContent = {
   profile: Profile
   experience: ExperienceEntry[]
   education: EducationEntry[]
   coreSkills: SkillGroup[]
   otherSkills: SkillGroup[]
-}
-
-export type LandingSectionId = 'splash' | 'about'
-
-export type LandingNavigationCue = {
-  label: string
-  description: string
-  href: `#${LandingSectionId}`
 }
 
 export type LandingAboutCard = {
@@ -84,13 +95,20 @@ export type LandingHero = {
   specialties: string[]
 }
 
+export type LandingAboutSection = {
+  id: LandingSectionId
+  eyebrow: string
+  title: string
+  summary: string
+  paragraphs: string[]
+  skills: string[]
+  quickLinks: LandingQuickLink[]
+  metrics: LandingMetric[]
+  cards: LandingAboutCard[]
+}
+
 export type LandingPageContent = {
   hero: LandingHero
   navigationCues: LandingNavigationCue[]
-  about: {
-    eyebrow: string
-    title: string
-    summary: string
-    cards: LandingAboutCard[]
-  }
+  about: LandingAboutSection
 }
