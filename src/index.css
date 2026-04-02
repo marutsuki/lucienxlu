@@ -47,8 +47,24 @@ html {
     @apply text-foreground;
   }
 
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tighter;
+  }
+
   a {
     @apply text-inherit no-underline;
+    @apply tracking-normal;
+  }
+
+  p {
+    @apply tracking-normal;
+  }
+
+  small {
+    @apply text-foreground/50;
   }
 
   button,

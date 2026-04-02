@@ -140,18 +140,27 @@ const AboutSection = () => {
               {about.eyebrow}
             </p>
             <h2
-              className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl"
+              className="my-3 text-3xl font-semibold tracking-tight sm:text-4xl"
               id="about-title"
             >
               {about.title}
             </h2>
+            {/* <MetadataLine
+              className="text-sm text-foreground/55"
+              items={about.}
+            /> */}
             {about.paragraphs.map((paragraph, index) => (
-              <p
-                key={`about-paragraph-${index}`}
-                className="mt-5 text-base leading-7 text-foreground/70 sm:text-lg"
-              >
-                {paragraph}
-              </p>
+              <div className="mt-5">
+                <small className="font-semibold tracking-widest">
+                  {paragraph.label}
+                </small>
+                <p
+                  key={`about-paragraph-${index}`}
+                  className="text-base leading-7 text-foreground/70 sm:text-lg"
+                >
+                  {paragraph.content}
+                </p>
+              </div>
             ))}
           </div>
           <a
@@ -206,7 +215,7 @@ const AboutSection = () => {
 
         <div className="space-y-8">
           <div className="rounded-4xl border border-foreground/10 bg-background/80 p-6 shadow-[0_24px_80px_-52px_rgba(15,23,42,0.45)]">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="flex gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h3 className="text-xl font-semibold tracking-tight">
                   Core skills and tools
@@ -216,10 +225,6 @@ const AboutSection = () => {
                   work.
                 </p>
               </div>
-              <MetadataLine
-                className="text-sm text-foreground/55"
-                items={hero.specialties}
-              />
             </div>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {about.skills.map((skill) => (
