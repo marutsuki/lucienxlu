@@ -5,7 +5,7 @@
 **Framework:** React (Vite-based) with TypeScript.
 
 **Styling:** Strictly Tailwind CSS v4.0+
-
+- I have scaffolded index.css with basic normalised styling and colours - feel free to update them but use them as a foundational baseline. Always refer to `CODING_GUIDELINES.md`
 - No external .css files allowed
 - Use inline utility classes. For complex logic, use `clsx` or `tailwind-merge`
 - Rely on consistent styling by creating default styling in index.css for **only** HTML tags, resort to inline styling whenever a HTML element cannot abide to the norm
