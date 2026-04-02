@@ -3,37 +3,55 @@
 ## Agent Roles
 
 ## 1. The Orchestrator (Manager Role)
+
 - **Role:** Orchestrator of the Portfolio build.
 - **Capabilities:** Authorized to spawn sub-agents (Artisan, Librarian, Auditor).
-- **Workflow:** 1. Read high-level request.
-  2. Use `/plan` to break it into sub-tasks.
-  3. Delegate UI tasks to **Artisan**, Data tasks to **Librarian**.
-  4. Call the **Auditor** for a final verification before reporting "Done."
+- **Workflow:** 1. Read high-level request. 2. Use `/plan` to break it into sub-tasks. 3. Delegate UI tasks to **Artisan**, Data tasks to **Librarian**. 4. Call the **Auditor** for a final verification before reporting "Done."
 
 ### 2. The Architect (App Builder)
+
 - **Scope:** Routing, layout assembly, and folder structure.
 - **Rules:** Must use components from `/src/components`. Cannot write inline styles.
 - **Output:** `App.tsx`, `main.tsx`, and page-level wrappers.
 
 ### 3. The Artisan (UI/Components)
+
 - **Scope:** Atomic components (Buttons, Cards, Nav).
-- **Rules:** Strictly Tailwind CSS. Must ensure ARIA compliance. 
+- **Rules:** Strictly Tailwind CSS. Must ensure ARIA compliance.
 - **Output:** Individual files in `/src/components/ui`.
 
 ### 4. The Librarian (Content/Data)
+
 - **Scope:** Professional history, project descriptions, and skill lists.
 - **Rules:** No JSX/TSX. Only manages `src/data/content.ts`.
 - **Output:** Strongly typed JSON or TypeScript objects.
 
 ### 5. The Auditor (SEO, Tech Debt, Accessibility & Vitals)
+
 - **Scope:** Metadata and Head tags, HTML tags and attributes, and asset optimization.
 - **Rules:** Reviews `index.html` and page headers. Checks for alt text. Checks for deprecated HTML usage and semanticness of HTML structure.
 - **Output:** SEO wrappers, accessibility, technical debt and performance reports.
 
+### 6. The Product Owner (Quality Observer)
+
+- **Scope:** Visual inspection, user experience evaluation, and functional testing.
+- **Capabilities:** Chrome DevTools MCP integration for navigation and screenshot capture.
+- **Rules:** Observes the live website, identifies stylistic and functional gaps, documents findings.
+- **Output:** Screenshots, improvement points, and handoff tasks for relevant agents.
+- **Workflow:**
+  1. Navigate the website using Chrome DevTools MCP.
+  2. Capture screenshots of key pages and interactions.
+  3. Evaluate against design and functional requirements.
+  4. Document stylistic issues (colors, spacing, typography) for **Artisan** or **Architect**.
+  5. Document functional issues (behavior, logic, performance) for **Artisan** or **Architect** or **Librarian**.
+  6. Handoff findings to appropriate agents for remediation by creating pending tasks in `manifest.json` with clear improvement points.
+
 ## Handover Process
 
 ### Responsibility
+
 Every agent after a successful write must update an existing local store of their changes and the impacts they have. They must list:
+
 - Who they are (their role or name)
 - A summary of the piece of work they completed
 - Files created/modified
@@ -41,12 +59,14 @@ Every agent after a successful write must update an existing local store of thei
 - Pending task(s) for the next agent
 
 ### Protocol
+
 Every agent must end their task by executing:
 `python scripts/handoff.py --agent [Name] --summary [Done] --files [Files] --next [Agent] --todo [Task] --link [Finished Task Ids]`
 
 **Note:** When an agent finishes a task that originated from a "pending_tasks" entry in `manifest.json`, the `task_id`(s) must be included in the `--link` argument for every task completed.
 
 Example:
+
 ```
 [Agent] inspects `manifest.json` and starts work on a task with property `"task_id"="merry-go-round"` in the `pending_tasks` list.
 [Agent] finishes the task stated above.
