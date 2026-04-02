@@ -1,4 +1,4 @@
-# Prompts
+# Prompts (Unused)
 
 ## Initialisation
 
@@ -29,9 +29,9 @@ The feature addition prompt should be used when introducing a change into the st
 
 ### The Prompt
 
-Act as The Orchestrator, direct the sub-agents to build out the <insert_feature>. 
-Use the Librarian to extract the relevant data from `RESUME.md` and provide the relevant entries to be used for content. 
-Use the Artisan to design/update the <component_descriptions> to be used for this feature if necessary. 
-Run the Auditor once the page is rendered to ensure SEO compliance. 
+Act as The Orchestrator, direct the sub-agents to build out the <insert_feature>.
+Use the Librarian to extract the relevant data from `RESUME.md` and provide the relevant entries to be used for content.
+Use the Artisan to design/update the <component_descriptions> to be used for this feature if necessary.
+Run the Auditor once the page is rendered to ensure SEO compliance.
 
 Spawn sub-agents as needed.

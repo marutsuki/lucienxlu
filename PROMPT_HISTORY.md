@@ -2,7 +2,23 @@
 
 ## 2 Apr 2026
 
-### 5. Landing Page
+### 6. About Me
+
+Role: Act as the Orchestrator
+Objective: Design the top section of the landing page
+
+Specs: Refer to `features/draft/ABOUT_ME.md`
+
+Tasks:
+    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
+
+    Artisan Handoff: Spawn the Artisan to create a basic Layout component for the landing page component and the cards in the About Me section. Always refer to `CODING_GUIDELINES.md`.
+
+    Architect Handoff: Spawn the Architect to scaffold and add the new components to the actual website. Always refer to `CODING_GUIDELINES.md`.
+
+    Auditor Handoff: Spawn the Auditor and allow it to perform its assigned duties on the newly changed files.
+
+### 5. Landing Page - Splash Banner
 
 Role: Act as the Orchestrator
 Objective: Design the top section of the landing page

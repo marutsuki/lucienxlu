@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#!/bin/bash
+
+# Check for required arguments
+if [ $# -lt 3 ]; then
+    echo "Usage: $0 <feature_name> <specs_file> <page_path>"
+    exit 1
+fi
+
+FEATURE_NAME="$1"
+SPECS_FILE="$2"
+PAGE_PATH="$3"
+
+cat << EOF
+Role: Act as the Orchestrator
+Objective: Design the $FEATURE_NAME
+
+Specs: Refer to $SPECS_FILE
+
+Tasks:
+    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to \`CODING_GUIDELINES.md\`.
+
+    Artisan Handoff: Spawn the Artisan to create/update the building block components for $FEATURE_NAME **only** if necessary. Always refer to \`CODING_GUIDELINES.md\`.
+
+    Architect Handoff: Spawn the Architect to scaffold and add the new components created by the Artisan to the "$PAGE_PATH" page (create the page if necessary). Always refer to \`CODING_GUIDELINES.md\`.
+
+    Auditor Handoff: Spawn the Auditor and allow it to perform its assigned duties on the newly changed files.
+EOF
