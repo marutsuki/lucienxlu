@@ -7,15 +7,44 @@ export const resumeContent: ResumeContent = {
     summary:
       "Software engineer focused on frontend-heavy full-stack systems, developer experience, and production reliability across React, Java, and cloud platforms.",
     location: "Melbourne, Victoria, Australia",
-    contact: "+61 468 435 818 | lucienlu2000@gmail.com",
+    contact: {
+      email: "lucienlu2000@gmail.com",
+      phone: "+61 468 435 818",
+    },
     links: [
       {
         label: "GitHub",
         href: "https://github.com/marutsuki/",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="size-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.787.605-3.375-1.343-3.375-1.343-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.528 2.341"
+            />
+          </svg>
+        ),
       },
       {
         label: "Portfolio",
         href: "https://marutsuki.com/",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="size-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.787.605-3.375-1.343-3.375-1.343-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.528 2.341"
+            />
+          </svg>
+        ),
       },
     ],
   },
@@ -327,25 +356,49 @@ export const landingContent: LandingPageContent = {
       },
     ],
     skills: [
-      "React, Angular, and React Router",
-      "Java Spring, Quarkus, and cloud delivery",
-      "Performance tuning and observability",
-      "Playwright, Jest, JUnit, and test automation",
+      "React and Redux, Angular and RxJS",
       "Tailwind CSS and typed UI composition",
-      "Developer experience, CI/CD, and release tooling",
+      "Java Spring, Quarkus, and Jakarta EE",
+      "Terraform, Kubernetes and Ansible",
+      "Playwright, Jest, JUnit and Cucumber",
+      "GitLab CI, Azure DevOps and Jenkins",
     ],
     quickLinks: [
       {
         label: "GitHub",
         href: "https://github.com/marutsuki/",
+        icon: (
+          <svg
+            fill="#000000"
+            width={16}
+            height={16}
+            viewBox="0 0 24 24"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>GitHub icon</title>
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        ),
       },
       {
         label: "Portfolio",
         href: "https://marutsuki.com/",
-      },
-      {
-        label: "Email",
-        href: "mailto:lucienlu2000@gmail.com",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={16}
+            height={16}
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="size-5"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.787.605-3.375-1.343-3.375-1.343-.455-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.528 2.341"
+            />
+          </svg>
+        ),
       },
     ],
     metrics: [

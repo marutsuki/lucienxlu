@@ -17,6 +17,12 @@ export type ResumeDate = `${string} ${MonthAbbreviation} ${string}` | "Present";
 export type SocialLink = {
   label: string;
   href: string;
+  icon: React.ReactNode;
+};
+
+export type Contact = {
+  email: string;
+  phone: string;
 };
 
 export type Profile = {
@@ -24,7 +30,7 @@ export type Profile = {
   headline: string;
   summary: string;
   location: string;
-  contact: string;
+  contact: Contact;
   links: SocialLink[];
 };
 
@@ -60,10 +66,7 @@ export type LandingNavigationCue = {
   href: `#${LandingSectionId}`;
 };
 
-export type LandingQuickLink = {
-  label: string;
-  href: string;
-};
+export type LandingQuickLink = SocialLink;
 
 export type LandingMetric = {
   label: string;
