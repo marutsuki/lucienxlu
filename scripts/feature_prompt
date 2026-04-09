@@ -16,6 +16,8 @@ cat << EOF
 Role: Act as the Orchestrator
 Objective: Design the $FEATURE_NAME
 
+Current State: Refer to HISTORY.md
+
 Specs: Refer to $SPECS_FILE
 
 External Resources: Some media/content may need to be sourced externally. Please inspect `MEDIA.md` for any relevant resources that can be used for this feature.
@@ -34,4 +36,6 @@ Tasks:
     Sanity Check (Recursive Step): Scan `manifest.json` for any pending tasks that are linked to this handoff and spawn the appropriate agents to address those tasks.
 
     Product Owner Handoff: Spawn the Product Owner to review the implementation, UI styling/functionality and provide feedback (and create handoff tasks if necessary).
+
+    Back to you (Orchestrator): After all the above steps are completed, perform a final review of the implementation and ensure that all tasks related to this feature are marked as completed in `manifest.json`. Then, update HISTORY.md with a summary of the implementation and any relevant notes for future reference.
 EOF
