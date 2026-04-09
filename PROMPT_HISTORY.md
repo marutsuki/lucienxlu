@@ -1,5 +1,12 @@
 # Prompt History
 
+## 10 Apr 2026
+
+### 8. Create History Audit
+
+Please look at AGENTS.md, CODING_GUIDELINES.md, PROMPT_HISTORY.md, the commit history and the current state. Once you have a complete picture of the project state, please
+update HISTORY.md with the first entry documentating exactly what the state of the project is right now. Let me know if you have any questions.
+
 ## 2 Apr 2026
 
 ### 7. Product Owner Review
@@ -14,7 +21,7 @@ Objective: Design the top section of the landing page
 Specs: Refer to `features/draft/ABOUT_ME.md`
 
 Tasks:
-    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
+Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
 
     Artisan Handoff: Spawn the Artisan to create a basic Layout component for the landing page component and the cards in the About Me section. Always refer to `CODING_GUIDELINES.md`.
 
@@ -27,7 +34,8 @@ Tasks:
 Role: Act as the Orchestrator
 Objective: Design the top section of the landing page
 
-Specs: 
+Specs:
+
 - The landing page (the root path `/`) should be a vertical scroll acting as a introduction to "Who I Am"
 - At the top of the landing page, the user should be greeted by a full screen width (on desktop/laptop) "splash art style" introduction with a portrait of "Me"
 - The portrait of myself is not accessible as of yet - please use a dummy image file
@@ -35,7 +43,7 @@ Specs:
 - The About Me section content should be divided and grouped into "card-like" blocks
 
 Tasks:
-    Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
+Librarian Handoff: Spawn the Librarian to parse RESUME.md and populate src/data/content.ts with the relevant data - and add new types if needed. Always refer to `CODING_GUIDELINES.md`.
 
     Artisan Handoff: Spawn the Artisan to create a basic Layout component for the splash screen component and the cards in the About Me section. Always refer to `CODING_GUIDELINES.md`.
 
