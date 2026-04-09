@@ -38,6 +38,7 @@ export type ExperienceEntry = {
   company: string;
   location: string;
   role: string;
+  summary: string;
   technologies: string[];
   startDate: ResumeDate;
   endDate: ResumeDate;
@@ -58,7 +59,7 @@ export type SkillGroup = {
   items: string[];
 };
 
-export type LandingSectionId = "splash" | "about" | "about-me";
+export type LandingSectionId = "splash" | "about" | "about-me" | "experience";
 
 export type LandingNavigationCue = {
   label: string;
@@ -115,8 +116,18 @@ export type LandingAboutParagraph = {
   content: string;
 };
 
+export type LandingExperienceSection = {
+  id: LandingSectionId;
+  eyebrow: string;
+  title: string;
+  summary: string;
+  shortcut: LandingNavigationCue;
+  entries: ExperienceEntry[];
+};
+
 export type LandingPageContent = {
   hero: LandingHero;
   navigationCues: LandingNavigationCue[];
   about: LandingAboutSection;
+  experience: LandingExperienceSection;
 };

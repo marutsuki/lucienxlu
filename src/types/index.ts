@@ -3,6 +3,7 @@ export type {
   ExperienceEntry,
   LandingAboutCard,
   LandingAboutSection,
+  LandingExperienceSection,
   LandingMetric,
   LandingNavigationCue,
   LandingPageContent,

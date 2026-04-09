@@ -53,6 +53,8 @@ export const resumeContent: ResumeContent = {
       company: "Aware Super",
       location: "Melbourne CBD, Victoria",
       role: "Software Developer",
+      summary:
+        "Improving member-facing performance and observability inside a large regulated platform.",
       technologies: [
         "React",
         "Angular",
@@ -74,6 +76,8 @@ export const resumeContent: ResumeContent = {
       company: "Qoria",
       location: "Richmond, Victoria",
       role: "Software Engineer",
+      summary:
+        "Built delivery, testing, and automation improvements that cut release friction.",
       technologies: [
         "React",
         "Angular",
@@ -97,6 +101,8 @@ export const resumeContent: ResumeContent = {
       company: "Thales Group",
       location: "Southbank, Victoria",
       role: "Graduate Software Engineer",
+      summary:
+        "Owned quality and performance work across a graphics-heavy product and its pipeline.",
       technologies: [
         "React",
         "Redux",
@@ -120,6 +126,8 @@ export const resumeContent: ResumeContent = {
       company: "National Australia Bank",
       location: "Melbourne CBD, Victoria",
       role: "Software Engineer",
+      summary:
+        "Strengthened batch-job integrations and automated test coverage for bank systems.",
       technologies: [
         "Java Spring",
         "JUnit",
@@ -139,6 +147,8 @@ export const resumeContent: ResumeContent = {
       company: "Tata Consultancy Services",
       location: "Melbourne CBD, Victoria",
       role: "Data Engineer",
+      summary:
+        "Short-term data engineering work across JavaScript, SQL, and HTML/CSS tooling.",
       technologies: ["Node.js", "JavaScript", "SQL", "HTML/CSS"],
       startDate: "01 Jun 2021",
       endDate: "01 Jul 2021",
@@ -150,6 +160,8 @@ export const resumeContent: ResumeContent = {
       company: "The University of Melbourne",
       location: "Parkville, Victoria",
       role: "Academic Tutor",
+      summary:
+        "Supported programming and computing fundamentals as a student-facing tutor.",
       technologies: ["Programming", "Computing", "Python"],
       startDate: "01 Jan 2021",
       endDate: "01 Mar 2021",
@@ -303,7 +315,7 @@ export const resumeContent: ResumeContent = {
 
 export const landingContent: LandingPageContent = {
   hero: {
-    portraitSrc: "/portrait-placeholder.png",
+    portraitSrc: "/portrait-placeholder.svg",
     portraitAlt:
       "Placeholder portrait of Lucien Lu for the landing page splash",
     eyebrow: "Who I Am",
@@ -460,5 +472,19 @@ export const landingContent: LandingPageContent = {
         ],
       },
     ],
+  },
+  experience: {
+    id: "experience",
+    eyebrow: "Experience",
+    title: "A timeline of roles, systems work, and measurable outcomes.",
+    summary:
+      "This section traces the career path behind the resume: member portals, release pipelines, WebGL tooling, bank integrations, and tutoring work that all point toward practical engineering.",
+    shortcut: {
+      label: "Jump to experience",
+      description:
+        "Skip directly to the timeline of roles, outcomes, and supporting details.",
+      href: "#experience",
+    },
+    entries: resumeContent.experience,
   },
 };

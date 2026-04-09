@@ -1,21 +1,103 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { AboutCard } from "../components/ui/about-card";
+import { ExperienceTimeline } from "../components/ui/experience-timeline";
 import { MetadataLine } from "../components/ui/metadata-line";
 import { SplashLayout } from "../components/ui/splash-layout";
 import { landingContent, resumeContent } from "../data/content";
 
 const HomePage = () => {
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const [activeExperienceIndex, setActiveExperienceIndex] = useState(0);
+
+  useEffect(() => {
+    const experienceSection = document.getElementById(landingContent.experience.id);
+
+    if (!experienceSection) {
+      return;
+    }
+
+    const entries = Array.from(experienceSection.querySelectorAll("article"));
+
+    if (entries.length === 0) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (observedEntries) => {
+        const visibleEntries = observedEntries
+          .filter((entry) => entry.isIntersecting)
+          .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+
+        const activeEntry = visibleEntries[0];
+
+        if (!activeEntry) {
+          return;
+        }
+
+        const index = entries.indexOf(activeEntry.target as HTMLElement);
+
+        if (index >= 0) {
+          setActiveExperienceIndex(index);
+        }
+      },
+      {
+        rootMargin: "-18% 0px -28% 0px",
+        threshold: [0.2, 0.4, 0.6, 0.8],
+      },
+    );
+
+    entries.forEach((entry) => {
+      observer.observe(entry);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [prefersReducedMotion]);
+
+  const handleShortcutClick = () => {
+    const experienceSection = document.getElementById(landingContent.experience.id);
+
+    if (!experienceSection) {
+      return;
+    }
+
+    experienceSection.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <div className="flex flex-col">
+    <div className="relative flex flex-col">
+      <ExperienceShortcutButton onClick={handleShortcutClick} />
       <SplashSection />
-      <AboutSection />
+      <AboutSection prefersReducedMotion={prefersReducedMotion} />
+      <ExperienceSection
+        activeIndex={prefersReducedMotion ? 0 : activeExperienceIndex}
+      />
     </div>
   );
 };
 
 export default HomePage;
+
+type AboutSectionProps = {
+  prefersReducedMotion: boolean;
+};
+
+type ExperienceSectionProps = {
+  activeIndex: number;
+};
 
 const SplashSection = () => {
   const { about, hero, navigationCues } = landingContent;
@@ -38,7 +120,7 @@ const SplashSection = () => {
         ]}
         eyebrow={hero.eyebrow}
         portraitAlt={hero.portraitAlt}
-        portraitSrc="/portrait-placeholder.svg"
+        portraitSrc={hero.portraitSrc}
         scrollTargetId={about.id}
         summary={
           <div className="space-y-5">
@@ -88,21 +170,16 @@ const SplashSection = () => {
   );
 };
 
-const AboutSection = () => {
+const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
   const { about } = landingContent;
   const { profile } = resumeContent;
-  const [isAboutVisible, setIsAboutVisible] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  });
+  const [isAboutVisible, setIsAboutVisible] = useState(() => prefersReducedMotion);
+  const shouldShowAbout = prefersReducedMotion || isAboutVisible;
 
   useEffect(() => {
     const aboutSection = document.getElementById(about.id);
 
-    if (!aboutSection || isAboutVisible) {
+    if (!aboutSection || shouldShowAbout || prefersReducedMotion) {
       return;
     }
 
@@ -125,7 +202,7 @@ const AboutSection = () => {
     return () => {
       observer.disconnect();
     };
-  }, [about.id, isAboutVisible]);
+  }, [about.id, prefersReducedMotion, shouldShowAbout]);
 
   return (
     <section
@@ -135,14 +212,14 @@ const AboutSection = () => {
     >
       <div
         className={clsx(
-          "flex flex-row gap-8 mx-auto max-w-7xl px-4 py-16 transition-all duration-700 ease-out sm:px-6 lg:px-8 lg:py-20",
-          isAboutVisible
+          "mx-auto grid max-w-7xl gap-8 px-4 py-16 transition-all duration-700 ease-out sm:px-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(21rem,0.9fr)] lg:px-8 lg:py-20",
+          shouldShowAbout
             ? "translate-y-0 opacity-100"
             : "translate-y-8 opacity-0",
         )}
       >
         <div className="flex flex-col gap-8">
-          <div className="flex lg:flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-start">
             <div className="max-w-3xl">
               <p className="text-sm uppercase tracking-[0.28em] text-foreground/50">
                 {about.eyebrow}
@@ -153,17 +230,12 @@ const AboutSection = () => {
               >
                 {about.title}
               </h2>
-              {/* <MetadataLine
-              className="text-sm text-foreground/55"
-              items={about.}
-              /> */}
               {about.paragraphs.map((paragraph, index) => (
-                <div className="mt-5">
+                <div className="mt-5" key={`about-paragraph-${index}`}>
                   <small className="font-semibold tracking-widest">
                     {paragraph.label}
                   </small>
                   <p
-                    key={`about-paragraph-${index}`}
                     className="text-base leading-7 text-foreground/70 sm:text-lg"
                   >
                     {paragraph.content}
@@ -243,6 +315,35 @@ const AboutSection = () => {
             }
             title="Profile details"
           />
+          <div className="grid gap-4 lg:grid-cols-3">
+            {about.cards.map((card) => (
+              <AboutCard
+                badge={card.eyebrow}
+                className="h-full"
+                description={
+                  <div className="space-y-4">
+                    <p>{card.summary}</p>
+                    <ul className="space-y-3">
+                      {card.points.map((point) => (
+                        <li
+                          className="flex items-start gap-3 text-sm leading-6 text-foreground/70"
+                          key={point}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-2 size-1.5 shrink-0 rounded-full bg-accent"
+                          />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                }
+                key={card.title}
+                title={card.title}
+              />
+            ))}
+          </div>
           <div className="space-y-8">
             <div className="rounded-4xl border border-foreground/10 bg-background/80 p-6 shadow-[0_24px_80px_-52px_rgba(15,23,42,0.45)]">
               <div className="flex gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -295,4 +396,90 @@ const AboutSection = () => {
       </div>
     </section>
   );
+};
+
+const ExperienceSection = ({ activeIndex }: ExperienceSectionProps) => {
+  const { experience } = landingContent;
+  const rolesLabel = `${experience.entries.length} roles across product, platform, and teaching work`;
+
+  return (
+    <ExperienceTimeline
+      activeIndex={activeIndex}
+      className="scroll-mt-24"
+      entries={experience.entries}
+      eyebrow={experience.eyebrow}
+      id={experience.id}
+      summary={
+        <div className="space-y-4">
+          <p>{experience.summary}</p>
+          <MetadataLine
+            className="text-sm text-foreground/58"
+            items={[
+              rolesLabel,
+              "Performance, delivery, and reliability themes",
+              "Scroll to move through the timeline",
+            ]}
+          />
+        </div>
+      }
+      title={experience.title}
+    />
+  );
+};
+
+type ExperienceShortcutButtonProps = {
+  onClick: () => void;
+};
+
+const ExperienceShortcutButton = ({
+  onClick,
+}: ExperienceShortcutButtonProps) => {
+  const { shortcut } = landingContent.experience;
+
+  return (
+    <button
+      aria-label={shortcut.description}
+      className="fixed bottom-5 right-4 z-40 inline-flex items-center gap-3 rounded-full border border-foreground/10 bg-background/90 px-4 py-3 text-left text-sm font-medium text-foreground shadow-[0_24px_60px_-36px_rgba(15,23,42,0.55)] backdrop-blur transition-all hover:-translate-y-0.5 hover:border-accent/25 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/45 focus-visible:ring-offset-2 sm:bottom-8 sm:right-8"
+      onClick={onClick}
+      type="button"
+    >
+      <span className="flex size-10 items-center justify-center rounded-full bg-accent/10 text-accent">
+        <BriefcaseBusiness aria-hidden="true" className="size-4" />
+      </span>
+      <span className="flex flex-col">
+        <span>{shortcut.label}</span>
+        <span className="text-xs font-normal text-foreground/60">
+          Timeline shortcut
+        </span>
+      </span>
+      <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
+    </button>
+  );
+};
+
+const usePrefersReducedMotion = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const handleChange = () => {
+      setPrefersReducedMotion(mediaQuery.matches);
+    };
+
+    handleChange();
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  return prefersReducedMotion;
 };

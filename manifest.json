@@ -1,8 +1,8 @@
 {
     "project_name": "Portfolio-Static-Site",
-    "last_updated": "2026-04-10 02:16:49.735395",
-    "current_state": "Waiting on User",
-    "active_agent": "User",
+    "last_updated": "2026-04-10 02:54:50.933161",
+    "current_state": "Waiting on Auditor",
+    "active_agent": "Auditor",
     "completed_tasks": [
         {
             "agent": "Architect",
@@ -153,23 +153,48 @@
             "agent": "Orchestrator",
             "task": "Added the first HISTORY.md entry documenting the exact repository, git, manifest, and validation state on 10 Apr 2026.",
             "timestamp": "2026-04-10 02:16:49.735395"
+        },
+        {
+            "agent": "Artisan",
+            "task": "Created an accessible reusable ExperienceTimeline UI primitive for the timeline and discovery section",
+            "timestamp": "2026-04-10 02:29:22.966561"
+        },
+        {
+            "agent": "Librarian",
+            "task": "Added typed Experience section data sourced from RESUME.md, including entry summaries, landing section metadata, and a shortcut target for the timeline",
+            "timestamp": "2026-04-10 02:30:45.761061"
+        },
+        {
+            "agent": "Architect",
+            "task": "Integrated the Experience timeline section into the homepage, wired the scroll shortcut and active state, and surfaced the About Me cards and portrait asset from data",
+            "timestamp": "2026-04-10 02:43:39.3792222"
+        },
+        {
+            "agent": "Auditor",
+            "task": "Audited the Experience rollout, fixed the malformed favicon head metadata, and verified the homepage and timeline changes pass build and lint checks",
+            "timestamp": "2026-04-10 02:43:39.3792222"
+        },
+        {
+            "agent": "Architect",
+            "task": "Integrated the homepage Experience timeline, floating shortcut, active-scroll behavior, About cards, and portrait data wiring",
+            "timestamp": "2026-04-10 02:54:50.933161"
         }
     ],
     "pending_tasks": [
         {
-            "target_agent": "Architect",
-            "task_description": "Surface the new About Me card content in the homepage layout so the recently added storytelling blocks are actually visible, and align the portrait asset wiring with the data field instead of hard-coding the splash image path.",
-            "task_id": "7ce89229-4bd1-4e70-bb29-26a310d553d2"
-        },
-        {
-            "target_agent": "Auditor",
-            "task_description": "Fix the malformed favicon link in the document head and keep the canonical, icon, and social metadata aligned with the actual deployed assets.",
-            "task_id": "4b476b9f-8fd6-4935-8060-06d26fafe786"
-        },
-        {
             "target_agent": "User",
             "task_description": "Review the snapshot and decide whether to preserve the current WIP refactor, finish it, or revert it.",
             "task_id": "0686c13e-8b45-4305-b2ce-0227de581218"
+        },
+        {
+            "target_agent": "Product Owner",
+            "task_description": "Review the implemented Experience rollout in the live app, focusing on visual balance, scroll behavior, and any follow-up issues worth handing back to the build agents.",
+            "task_id": "af0affdd-3113-4cb3-983f-9f8226ee95bf"
+        },
+        {
+            "target_agent": "Auditor",
+            "task_description": "Audit the Experience homepage integration, reduced-motion behavior, semantics, and head metadata alignment.",
+            "task_id": "fa8ee879-3091-4000-9b0e-30754511e3b5"
         }
     ],
     "file_registry": [
@@ -203,6 +228,8 @@
         "src/components/ui/splash-layout.tsx",
         "src/components/ui/about-card.tsx",
         "public/portrait-placeholder.svg",
-        "HISTORY.md"
+        "HISTORY.md",
+        "src/components/ui/experience-timeline.tsx",
+        "src/data/content.tsx"
     ]
 }
