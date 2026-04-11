@@ -13,6 +13,8 @@ html {
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --breakpoint-3xl: 112rem;
+
   --color-background: #f8fafc;
   --color-foreground: #0f172a;
   --color-surface: #ffffff;
@@ -43,6 +45,11 @@ html {
 
   * {
     @apply border-surface-muted;
+  }
+
+  section {
+    /* Follows Tailwind's default breakpoints for mobile-first */
+    @apply h-screen sm:w-160 md:w-3xl lg:w-5xl xl:w-7xl 2xl:w-384 3xl:w-448 place-self-center;
   }
 
   h1,

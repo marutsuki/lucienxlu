@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
 import {
   ChevronRight,
   CircleUserRound,
@@ -7,31 +7,31 @@ import {
   Menu,
   NotebookText,
   Sparkles,
-} from 'lucide-react'
-import clsx from 'clsx'
+} from "lucide-react";
+import clsx from "clsx";
 
 export type NavItem = {
-  label: string
-  href: string
-  description: string
-  icon?: ReactNode
-}
+  label: string;
+  href: string;
+  description: string;
+  icon?: ReactNode;
+};
 
 export type PortfolioLayoutProps = {
-  brand: string
-  headline: string
-  description: string
-  navItems: NavItem[]
-  children: ReactNode
-  footerNote?: string
-}
+  brand: string;
+  headline: string;
+  description: string;
+  navItems: NavItem[];
+  children: ReactNode;
+  footerNote?: string;
+};
 
-const defaultIcons = [LayoutDashboard, NotebookText, Sparkles, Mail]
+const defaultIcons = [LayoutDashboard, NotebookText, Sparkles, Mail];
 
 const iconForIndex = (index: number) => {
-  const Icon = defaultIcons[index % defaultIcons.length]
-  return <Icon aria-hidden="true" className="size-4 shrink-0" />
-}
+  const Icon = defaultIcons[index % defaultIcons.length];
+  return <Icon aria-hidden="true" className="size-4 shrink-0" />;
+};
 
 export const PortfolioLayout = ({
   brand,
@@ -39,7 +39,7 @@ export const PortfolioLayout = ({
   description,
   navItems,
   children,
-  footerNote = 'Available for software engineering roles and product-minded collaboration.',
+  footerNote = "Available for software engineering roles and product-minded collaboration.",
 }: PortfolioLayoutProps) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -77,8 +77,8 @@ export const PortfolioLayout = ({
                 <li key={item.href}>
                   <a
                     className={clsx(
-                      'group flex items-start gap-3 rounded-2xl border border-transparent px-3 py-3 transition-colors',
-                      'hover:border-foreground/10 hover:bg-background/70 focus-visible:border-foreground/20 focus-visible:bg-background/80 focus-visible:outline-none',
+                      "group flex items-start gap-3 rounded-2xl border border-transparent px-3 py-3 transition-colors",
+                      "hover:border-foreground/10 hover:bg-background/70 focus-visible:border-foreground/20 focus-visible:bg-background/80 focus-visible:outline-none",
                     )}
                     href={item.href}
                   >
@@ -124,5 +124,5 @@ export const PortfolioLayout = ({
         </main>
       </div>
     </div>
-  )
-}
+  );
+};

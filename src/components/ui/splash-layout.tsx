@@ -33,7 +33,7 @@ export const SplashLayout = ({
     <section
       aria-labelledby="splash-title"
       className={clsx(
-        "relative isolate overflow-hidden border-b border-foreground/10 bg-[radial-gradient(circle_at_top_left,rgba(15,118,110,0.16),transparent_42%),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,1))] px-4 py-8 sm:px-6 lg:min-h-[100svh] lg:px-10",
+        "w-screen! relative isolate overflow-hidden border-b border-foreground/10 bg-[radial-gradient(circle_at_top_left,rgba(15,118,110,0.16),transparent_42%),linear-gradient(180deg,rgba(255,255,255,0.92),rgba(248,250,252,1))] px-4 py-8 sm:px-6 lg:min-h-[100svh] lg:px-10",
         className,
       )}
     >
