@@ -19,7 +19,9 @@ const HomePage = () => {
   const [activeExperienceIndex, setActiveExperienceIndex] = useState(0);
 
   useEffect(() => {
-    const experienceSection = document.getElementById(landingContent.experience.id);
+    const experienceSection = document.getElementById(
+      landingContent.experience.id,
+    );
 
     if (!experienceSection) {
       return;
@@ -35,7 +37,9 @@ const HomePage = () => {
       (observedEntries) => {
         const visibleEntries = observedEntries
           .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+          .sort(
+            (left, right) => right.intersectionRatio - left.intersectionRatio,
+          );
 
         const activeEntry = visibleEntries[0];
 
@@ -65,7 +69,9 @@ const HomePage = () => {
   }, [prefersReducedMotion]);
 
   const handleShortcutClick = () => {
-    const experienceSection = document.getElementById(landingContent.experience.id);
+    const experienceSection = document.getElementById(
+      landingContent.experience.id,
+    );
 
     if (!experienceSection) {
       return;
@@ -73,7 +79,7 @@ const HomePage = () => {
 
     experienceSection.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
-      block: "start",
+      block: "end",
     });
   };
 
@@ -173,7 +179,9 @@ const SplashSection = () => {
 const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
   const { about } = landingContent;
   const { profile } = resumeContent;
-  const [isAboutVisible, setIsAboutVisible] = useState(() => prefersReducedMotion);
+  const [isAboutVisible, setIsAboutVisible] = useState(
+    () => prefersReducedMotion,
+  );
   const shouldShowAbout = prefersReducedMotion || isAboutVisible;
 
   useEffect(() => {
@@ -235,9 +243,7 @@ const AboutSection = ({ prefersReducedMotion }: AboutSectionProps) => {
                   <small className="font-semibold tracking-widest">
                     {paragraph.label}
                   </small>
-                  <p
-                    className="text-base leading-7 text-foreground/70 sm:text-lg"
-                  >
+                  <p className="text-base leading-7 text-foreground/70 sm:text-lg">
                     {paragraph.content}
                   </p>
                 </div>
